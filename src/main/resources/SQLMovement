@@ -1,0 +1,34 @@
+-- Table: public.movement
+
+-- DROP TABLE public.movement;
+
+CREATE TABLE public.movement
+(
+    "idMovement" bigint NOT NULL,
+    "idUser" bigint NOT NULL,
+    description text COLLATE pg_catalog."default",
+    amount money,
+    "movementDate" date,
+    "updateDate" date,
+    CONSTRAINT "idMovement" PRIMARY KEY ("idMovement"),
+    CONSTRAINT "fk_idUser" FOREIGN KEY ("idUser")
+        REFERENCES public."user" (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.movement
+    OWNER to postgres;
+
+-- Index: fki_fk_idUser
+
+-- DROP INDEX public."fki_fk_idUser";
+
+CREATE INDEX "fki_fk_idUser"
+    ON public.movement USING btree
+    ("idUser")
+    TABLESPACE pg_default;
