@@ -4,7 +4,7 @@
 
 CREATE TABLE public."user"
 (
-    id bigint NOT NULL,
+    id bigserial NOT NULL,
     "idFb" bigint,
     name text COLLATE pg_catalog."default" NOT NULL,
     "lastName" text COLLATE pg_catalog."default",

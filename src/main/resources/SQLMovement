@@ -4,7 +4,7 @@
 
 CREATE TABLE public.movement
 (
-    "idMovement" bigint NOT NULL,
+    "idMovement" bigserial NOT NULL,
     "idUser" bigint NOT NULL,
     description text COLLATE pg_catalog."default",
     amount money,
