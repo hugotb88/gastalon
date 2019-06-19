@@ -15,7 +15,6 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
     hibernate:
       ddl-auto: create-drop
-      properties.hibernate.temp.use_jdbc_metadata_defaults: false
-      jdbc.lob.non-contextual-creation: true
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false  #Added to avoid de CLOB Exception
