@@ -13,6 +13,7 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public User createUser(User userToCreate) {
+        //TODO DB Connection
         return null;
     }
 }

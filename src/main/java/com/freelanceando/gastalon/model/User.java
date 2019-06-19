@@ -1,6 +1,5 @@
 package com.freelanceando.gastalon.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,7 +11,6 @@ import java.time.LocalDateTime;
  * Model for users
  */
 @Data
-@AllArgsConstructor
 @Entity(name = "users")
 public class User {
 
@@ -43,14 +41,18 @@ public class User {
     private LocalDateTime updateDate;
 
     //Constructor
-    public User (BigInteger idFb, String name, String lastName, String email, Float dailyLimit, LocalDateTime joinDate, LocalDateTime updateDate) {
+    public User (BigInteger idFb, String name, String lastName, String email, Float dailyLimit) {
         this.idFb = idFb;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.dailyLimit = dailyLimit;
-        this.joinDate = joinDate;
-        this.updateDate = updateDate;
+        this.joinDate = LocalDateTime.now();
+        this.updateDate = LocalDateTime.now();
     }
+
+    public User () {}
+
+
 
 }
