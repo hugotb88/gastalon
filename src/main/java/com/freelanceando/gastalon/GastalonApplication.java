@@ -1,10 +1,10 @@
-package com.freelanceando.gastalon.boot;
+package com.freelanceando.gastalon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-@SpringBootApplication(scanBasePackages = {"com.freelanceando"})
+@SpringBootApplication
 @EnableConfigurationProperties
 public class GastalonApplication {
 

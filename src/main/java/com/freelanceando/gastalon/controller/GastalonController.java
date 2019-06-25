@@ -3,9 +3,9 @@ package com.freelanceando.gastalon.controller;
 import com.freelanceando.gastalon.model.User;
 import com.freelanceando.gastalon.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.ws.rs.QueryParam;
 
 /**
  * Endpoints for Gastalon
@@ -18,11 +18,16 @@ public class GastalonController {
     UserService userService;
 
 
-    @PostMapping("/add/user")
+    @PostMapping("/user/create")
     public void addUser(@RequestBody User user){
         //TODO Logic to create a new user in the DB
         userService.createUser(user);
     }
 
+    @GetMapping("user/email")
+    public User getUserByEmail(@QueryParam("email") String email){
+        return userService.getUserByEmail(email);
+
+    }
 
 }

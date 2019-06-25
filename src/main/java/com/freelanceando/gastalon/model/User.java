@@ -40,6 +40,9 @@ public class User {
     @Column
     private LocalDateTime updateDate;
 
+    @Column
+    private char active;
+
     //Constructor
     public User (BigInteger idFb, String name, String lastName, String email, Float dailyLimit) {
         this.idFb = idFb;
@@ -49,6 +52,7 @@ public class User {
         this.dailyLimit = dailyLimit;
         this.joinDate = LocalDateTime.now();
         this.updateDate = LocalDateTime.now();
+        this.active = 'n';
     }
 
     public User () {}
