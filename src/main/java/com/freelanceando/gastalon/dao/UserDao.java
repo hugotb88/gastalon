@@ -16,6 +16,9 @@ import java.io.Serializable;
 @Repository
 public interface UserDao extends JpaRepository<User, Serializable> {
 
-    @Query(value="SELECT * FROM public.user  WHERE email = :email",nativeQuery=true)
+    @Query(value="SELECT * FROM public.users  WHERE email = :email",nativeQuery=true)
     public User getUserByEmail(@Param("email") String email);
+
+    @Query(value="SELECT COUNT (*)  FROM public.users  WHERE email = :email",nativeQuery=true)
+    public Integer checkIfUserExists(@Param("email") String email);
 }

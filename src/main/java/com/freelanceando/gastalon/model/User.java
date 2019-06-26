@@ -3,6 +3,7 @@ package com.freelanceando.gastalon.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @Entity(name = "users")
-public class User {
+public class User implements Serializable {
 
     //Attributes
     @Id
@@ -43,13 +44,13 @@ public class User {
     @Column
     private char active;
 
-    //Constructor
-    public User (BigInteger idFb, String name, String lastName, String email, Float dailyLimit) {
+    //Constructor to create a new User
+    public User (BigInteger idFb, String name, String lastName, String email) {
         this.idFb = idFb;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-        this.dailyLimit = dailyLimit;
+        this.dailyLimit = 0f;
         this.joinDate = LocalDateTime.now();
         this.updateDate = LocalDateTime.now();
         this.active = 'n';
